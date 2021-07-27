@@ -7,12 +7,12 @@ const date = today.toISOString().substr(0,10);
 
 
 function From( {setData} ) {
-    const [month, setMonth] = useState("DE");
+    const initMonth = "DE";
+    const [month, setMonth] = useState(initMonth);
     const [country, setCountry] = useState(date);
 
     const changeData = (e) => {
         e.preventDefault();
-        console.log(month, country)
         setData( prevState => [month, country])
     }
 
@@ -22,7 +22,7 @@ function From( {setData} ) {
                 <input id="month" type="date" defaultValue={date} onChange={(e)=> setMonth(e.target.value)}/> 
                 </label>
             <label>country 
-                <select id="country" defaultValue="DE" list="country" onChange={(e)=> setCountry(e.target.value)}>
+                <select id="country" defaultValue={initMonth} list="country" onChange={(e)=> setCountry(e.target.value)}>
                 <option value="PL">Poland</option> 
                 <option value="DE">Germany</option>
                 </select>
