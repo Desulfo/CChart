@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import './App.css';
 import Form from '../molecules/From'
+import Chart from '../molecules/Chart'
 
 function App() {
   const [data, setData] =useState([null, null]);
@@ -16,6 +17,7 @@ function App() {
       <h1>Hello</h1>
       <Form setData={setData}/>
       {list}
+      <Chart />
     </>
   );
 }
