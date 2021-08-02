@@ -21,7 +21,7 @@ function Form({ setFetchData }) {
     <form onSubmit={submitHandler}>
       <fieldset>
         <label>
-          month
+          date
           <input ref={dateRef} type="date" defaultValue={date} />
         </label>
         <label>

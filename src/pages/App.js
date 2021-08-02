@@ -31,29 +31,34 @@ function App() {
     date: "",
     country: "",
   });
-  const [results, setResults] = useState({});
+  const [results, setResults] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const inputData = new Date(fetchData.date);
     inputData.setMonth(inputData.getMonth() + 1); //month later
     const startingDate = formatDate(fetchData.date);
     const endingDate = formatDate(inputData);
-    console.log(endpoint(fetchData.country, startingDate, endingDate));
-    console.log(
-      "https://covidapi.info/api/v1/country/IND/timeseries/2020-03-15/2020-03-20"
-    );
     fetch(endpoint(fetchData.country, startingDate, endingDate))
       .then((response) => response.json())
-      .then((data) => setResults(data["result"]));
-    // return () => {
-    //   cleanup
-    // }
+      .then((data) => setResults(data["result"]), setError(""))
+      .catch((error) => {
+        console.error("Error:", error);
+        setError(`${error}`);
+      });
   }, [fetchData]);
   return (
     <>
       <h1 className={classes.mainHeader}>Covid chart</h1>
       <Form setFetchData={fetchDataDispatch} />
-      <Chart results={results} />
+      {error && (
+        <p className={classes.error}>
+          {error}
+          <br />
+          Make sure your <i>date</i> it's month ago from today.
+        </p>
+      )}
+      {results && <Chart results={results} />}
     </>
   );
 }
