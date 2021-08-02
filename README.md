@@ -1,6 +1,6 @@
 # CovidChart
 
-Live version: [CovidChart](https://desulfo.github.io/CChart)
+<!-- Live version: [CovidChart](https://desulfo.github.io/CChart) -->
 
 ## General information
 
