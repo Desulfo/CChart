@@ -35,6 +35,9 @@ function App() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    if (!fetchData.date) {
+      return;
+    }
     const inputData = new Date(fetchData.date);
     inputData.setMonth(inputData.getMonth() + 1); //month later
     const startingDate = formatDate(fetchData.date);
