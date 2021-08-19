@@ -26,7 +26,7 @@ If site didn't open automatically in your browser you can access it here: [http:
 
 ## Status
 
-_In Progress_
+_Ended_
 
 ## Future
 
